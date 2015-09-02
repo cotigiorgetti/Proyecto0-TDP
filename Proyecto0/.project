@@ -14,11 +14,4 @@
 	<natures>
 		<nature>org.eclipse.jdt.core.javanature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>jar/proyecto0.jar</name>
-			<type>1</type>
-			<location>C:/Users/Eugenia/Desktop/proyecto0.jar</location>
-		</link>
-	</linkedResources>
 </projectDescription>
