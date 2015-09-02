@@ -13,7 +13,6 @@ import javax.swing.JButton;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
-import javax.swing.ImageIcon;
 
 @SuppressWarnings("serial")
 
@@ -51,7 +50,7 @@ public class Inter extends JFrame {
 		
 		JLabel label = new JLabel("");
 		label.setLabelFor(this);
-		label.setIcon(new ImageIcon(Inter.class.getResource("/Imagenes/Lisa_simpson_1.gif")));
+		label.setIcon(log.mostrarImagen());
 		
 		
 		textField = new JTextArea();

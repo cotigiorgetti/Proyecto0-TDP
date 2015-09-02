@@ -16,7 +16,7 @@ public class Logica {
  * */
 	public ImageIcon mostrarImagen()
 	{
-		return new ImageIcon("Lisa_simpson_1.gif");
+		return new ImageIcon(Logica.class.getResource("/Imagenes/Lisa_simpson_1.gif"));
 	}
 	/**
 	 * @return String:devuelve un objeto de la clase String utilizado para mostrar la frase correspondiente en la clase Inter. 
