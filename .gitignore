@@ -3,25 +3,10 @@
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
-# Package Files #
-# eclipse
-*.pydevproject
-.project
-.metadata
-bin/**
-tmp/**
-tmp/**/*
-*.tmp
-*.bak
-*.swp
-*~.nib
-local.properties
-.classpath
+git rm --cached .project
+git rm --cached .classpath
 .settings/
-.loadpath
-.externalToolBuilders/
-*.launch
-.buildpath
+.
 *.war
 *.ear
 
