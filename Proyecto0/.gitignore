@@ -1,4 +1,4 @@
 /bin/
 /.settings/
-git rm --cached .project
-git rm --cached .classpath
+/.classpath/
+/.project/

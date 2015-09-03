@@ -3,10 +3,10 @@
 # Mobile Tools for Java (J2ME)
 .mtj.tmp/
 
-git rm --cached .project
-git rm --cached .classpath
+
 .settings/
-.
+*.classpath
+*.project
 *.war
 *.ear
 
