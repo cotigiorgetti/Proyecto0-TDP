@@ -1,4 +1,4 @@
-package src.Interfaz;
+package Interfaz;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -14,10 +14,14 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JTextArea;
 
-@SuppressWarnings("serial")
+
 
 public class Inter extends JFrame {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -8406370669013620098L;
 	protected Logica log=new Logica();
 	private JPanel contentPane;
 	private JTextArea textField;
