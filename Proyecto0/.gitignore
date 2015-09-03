@@ -2,6 +2,6 @@
 /.settings/
 .project
 .settings
+.#ignore the eclipse configuration files
 .classpath
-.metadata
-.externalToolBuilders
+.project

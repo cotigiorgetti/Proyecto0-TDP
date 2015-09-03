@@ -19,3 +19,9 @@ hs_err_pid*
 .classpath
 .metadata
 .externalToolBuilders
+#       .classpath
+#       .gitignore
+#       .gradle/
+#ignore the eclipse configuration files
+.classpath
+.project
