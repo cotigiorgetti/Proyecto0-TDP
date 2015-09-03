@@ -6,3 +6,7 @@
 .classpath
 /.PROJECT
 /.CLASSPATH
+echo “.settings
+.project
+.classpath
+target/” >> .gitignore
