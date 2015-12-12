@@ -1,60 +1,70 @@
 package Logica;
 
+import java.util.ConcurrentModificationException;
+
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
+
 import Enemigo.Enemigos;
 import Grafica.Juego;
 import Lugar.Lugar;
 
+/**
+ * @author Giorgetti,Constanza;Heinrich,Maria Eugenia
+ * Clase Thread para el Altair
+ */
 public class HiloEnemigoA extends HiloEnemigo {
-	private Enemigos e;
-	private Juego j;
-	
+	//private Enemigos e;
+	//private Juego j;
+	@SuppressWarnings("unused")
+	private volatile boolean mDetener = false;
+	private Item l=null;
+	private Icon icono=null;
+
 	public HiloEnemigoA(Enemigos e,Nivel n,Juego j) {
 		super(e,n,j);
-		this.e=e;
+	//	this.e=e;
 		// TODO Auto-generated constructor stub
 	}
 
 	@SuppressWarnings("unused")
-	private volatile boolean mDetener = false;
-	/**public void run(Juego juego) {
-		j=juego;
-//	for(int i=0;i<=100;i++)
-//	while(!mDetener)	
-	///while(L!=null)
-		{
+
+	public  void run() {
+		try {	
+		while(!mDetener)	
+
+			{
+				try{
 			
-			try {
-				
-			  // System.out.println("Pre While");
-		//   while(!mDetener)	
-				{
-			//	   System.out.println("While");
-					Lugar l2=new Lugar(e.getPosicionX(),e.getPosicionY(),1);
+					{
+						if(l!=null)
+						{
+							j.setearLabel(l,icono);
+						}
+						
+					 L=e.mover(e.getPosicionX(), e.getPosicionY(), nivel);//nivel.lugarDisponible3(e.getPosicionX(),e.getPosicionY());
+					 l=L;
+					 icono=j.encontrarIcono(l);
 					
-				 //    L= e.mover();
-				   //  e.setPosicionX(L.getPosicionX());
-				  // e.setPosicionY(L.getPosicionY());
-				//	System.out.println(j.getName());
-				//	System.out.println("antes setear enemigo");
+					 j.setearEnemigo4(e,L);
+					 
+					   Thread.sleep((long) (5000*0.5));
+					   
+					}  
 					
-				   j.setearEnemigo(e,l2);//,l2);
-			//	 System.out.println("pase setear enemigo");
-				   Thread.sleep(0);
-			   }
+						
+					  }	catch(NullPointerException e){}
+				catch(ConcurrentModificationException e2){}
 				
-			} catch (Exception e) { }
-		}}
-	public void run()
-	{   try {
-	//	System.out.println(j.getName());
-	//	  j.setearEnemigo3(this.getE());//,l2);
+			}
 		
-			Thread.sleep(1000);
-		} catch (Exception e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
+		} catch (InterruptedException e1) { 
+			System.out.println("error Altair");
+		//	e.printStack
+			}
+		
+			
 		}
-	}
 	
-	*/
 }

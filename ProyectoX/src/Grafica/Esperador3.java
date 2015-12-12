@@ -1,29 +1,25 @@
-package Logica;
+package Grafica;
 
-import Grafica.Juego;
 
 /**
  * @author Giorgetti,Constanza;Heinrich,Maria Eugenia
  */
-public class Esperador extends Thread{
-	
+public class Esperador3 extends Thread{
+
 	private Juego juego;
-	@SuppressWarnings("unused")
 	private float tiempo;
-	
-	public Esperador(float t,Juego j){
+	public Esperador3(float t,Juego j){
 		tiempo=t;
 		juego=j;
 	}
 	
 	public void run(){
 		try {
-			Thread.sleep(1000);
-			juego.despuesDeEsperar();
+			Thread.sleep((long) (1000*tiempo));
+			
 		} catch (InterruptedException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
-
 }

@@ -15,7 +15,9 @@ import Lugar.Lugar;
 public abstract class Enemigos extends Item {
 	protected int velocidad;
 	protected int inteligencia;
-	   protected ImageIcon [] coleccionI=new ImageIcon[]{new ImageIcon((Enemigos.class.getResource("/Imagenes/rugulos.png"))),new ImageIcon((Enemigos.class.getResource("/Imagenes/altair.png"))),new ImageIcon((Enemigos.class.getResource("/Imagenes/sirius.png")))};
+	   protected ImageIcon [] coleccionI=new ImageIcon[]{new ImageIcon((Enemigos.class.getResource("/Imagenes/rugulos.png"))),
+			   new ImageIcon((Enemigos.class.getResource("/Imagenes/altair.png"))),
+			   new ImageIcon((Enemigos.class.getResource("/Imagenes/sirius.png")))};
 	   protected Nivel Nivel;  
 	   /**
 	     * Constructor, crea un Enemigo
@@ -30,8 +32,24 @@ public abstract class Enemigos extends Item {
          this.inteligencia=inteligencia;
       
     }
-
     /**
+     * Retorna la coleccion de imagenes
+     * @return coleccion de imagenes de los enemigos
+     */
+
+    public ImageIcon[] getColeccionI() {
+		return coleccionI;
+	}
+    /**
+     * Sete la coleccion de imagenes 
+     * @param coleccionI coleccion de imagenes de los enemigos
+     */
+
+	public void setColeccionI(ImageIcon[] coleccionI) {
+		this.coleccionI = coleccionI;
+	}
+
+	/**
      * Bomberman destruye el enemigo y este lo beneficia segun el tipo del mismo
      * @param b Bomberman
      */
@@ -47,7 +65,8 @@ public abstract class Enemigos extends Item {
     }
 
     /**
-     * @return
+     * retorna el nivel
+     * @return nivel
      */
     public Nivel getNivel() {
         // TODO implement here
@@ -56,9 +75,9 @@ public abstract class Enemigos extends Item {
 
     /**
      * Movimiento del enemigo de forma aleatoria
-     * @return 
+     * @return nuevo lugar
      */
-    public Lugar mover(Logica.Nivel n){
+    public abstract Lugar mover(int x,int y,Logica.Nivel n);/**{
     	int posX= this.getPosicionX();
     	int posY=this.getPosicionY();
     	Random r=new Random();
@@ -86,7 +105,7 @@ public abstract class Enemigos extends Item {
 	}
     	return lugar;
 
-}
+}*/
  /**   public Lugar mover() {
     	// this.setPosicionX(l.getPosicionX());
          //this.setPosicionY(l.getPosicionY());
@@ -145,7 +164,7 @@ return lugar;
      * El enemigo es destruido
      */
     public void Morir() {
-        // TODO implement here
+        
     }
 
     /**

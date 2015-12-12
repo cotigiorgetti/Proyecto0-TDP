@@ -1,4 +1,7 @@
 package Logica;
+import javax.swing.ImageIcon;
+
+import Enemigo.Enemigos;
 import Lugar.Lugar;
 
 /**
@@ -6,8 +9,20 @@ import Lugar.Lugar;
  */
 public class Bombas extends Item {
 	   protected int alcance;
+	   protected ImageIcon [] coleccionI=new ImageIcon[]{new ImageIcon((Bombas.class.getResource("/Imagenes/bomba.png"))),
+			   new ImageIcon((Bombas.class.getResource("/Imagenes/fuego medio.png"))),
+			   new ImageIcon((Bombas.class.getResource("/Imagenes/fuego horizontal.png"))),
+			   new ImageIcon((Bombas.class.getResource("/Imagenes/fuego vertical.png")))};
+		
+    public ImageIcon[] getColeccionI() {
+		return coleccionI;
+	}
 
-    /**
+	public void setColeccionI(ImageIcon[] coleccionI) {
+		this.coleccionI = coleccionI;
+	}
+
+	/**
      * Constructor para una bomba
      * @param x posicion x de la bomba
      * @param y posicion y de la bomba
@@ -15,10 +30,18 @@ public class Bombas extends Item {
     public Bombas(int x,int y) {
     	super(x,y);
     }
+    /**
+     * Retorna el alcance
+     * @return alcance de la bomba
+     */
 
     public int getAlcance() {
 		return alcance;
 	}
+    /**
+     * Sete el alcance 
+     * @param alcance de la bomba
+     */
 
 	public void setAlcance(int alcance) {
 		this.alcance = alcance;
@@ -45,6 +68,13 @@ public class Bombas extends Item {
     	 else
     		 return false;
     }
+    public boolean alcanzarEnemigo(Enemigos e) {
+      	 if ((e.getPosicionX()<=this.getPosicionX()*alcance) &&(e.getPosicionY()<=this.getPosicionY()*alcance) )
+              return true;
+      	 else
+      		 return false;
+      }
+
 
     /**
      * Luego de ser colocada, la bomba explota en el lugar pasado por parametro

@@ -1,6 +1,9 @@
 package PowerUps;
 
+import Grafica.Esperador3;
+import Grafica.Esperador4;
 import Logica.Bomberman;
+import Logica.MasacralityThread;
 
 /**
  * @author Giorgetti,Constanza;Heinrich,Maria Eugenia
@@ -8,6 +11,8 @@ import Logica.Bomberman;
 public class Masacrality extends Powerup {
 
 	protected int tiempo;
+	protected int cantBombasBomberman;
+
     /**
      * Constructor para el Masacrality
      * @param x posicion x del power up
@@ -16,6 +21,7 @@ public class Masacrality extends Powerup {
     public Masacrality(int x,int y) {
     	super(x,y);
     	 this.setI(coleccionI[3]);
+   
     }
 
     /**
@@ -24,8 +30,30 @@ public class Masacrality extends Powerup {
      * @return power up
      */
     public Powerup devolverPowerUp(Bomberman b) {
-    	 b.setPuntaje(b.getPuntaje()+50);
-        return this;
+    	cantBombasBomberman=b.cantBombas();
+    	 Esperador4 esp= new Esperador4(b,cantBombasBomberman);
+    	b.setPuntaje(b.getPuntaje()+50);
+    	
+    	 
+    	
+    //	 b.setActivo(true);
+    //	b.cambiarAtravesarPared1();
+    	 //MasacralityThread t=new MasacralityThread(b);
+      //  for(int i=0;i<=15;i++)
+        {
+        	//  System.out.println("En el For Masacrality"+b.getAtravesarPared());
+         
+        	b.cambiarAtravesarParedEn1();
+        	b.AumentarCantBombasParaColocar(99);
+        	// System.out.println("En el For Masacrality"+b.getAtravesarPared());
+        	  esp.start();
+        	
+        	
+        }
+      // 
+    //    System.out.println("Sali del For Masacrality"+b.getAtravesarPared());
+ //   b.setAtravesarPared(0);
+    	return this;
     }
 
     /**

@@ -86,16 +86,12 @@ public class JuegoLogica {
         // TODO implement here
         return Nivel;
     }
-    /**
-     * 
-     */
+    
     public void colisionar(){
     	
     	
     }
-    /**
-     * 
-     */
+    
     public void destruirPared(){
     	
     }

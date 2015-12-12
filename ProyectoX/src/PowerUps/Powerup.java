@@ -10,7 +10,18 @@ import Logica.*;
 public abstract class Powerup extends Item {
 	
 	 protected Nivel Nivel;
-	   protected ImageIcon [] coleccionI=new ImageIcon[]{new ImageIcon((Powerup.class.getResource("/Imagenes/power up speed up.png"))),new ImageIcon((Powerup.class.getResource("/Imagenes/power up fatality.png"))),new ImageIcon((Powerup.class.getResource("/Imagenes/power up bombaility.png"))),new ImageIcon((Powerup.class.getResource("/Imagenes/power up masacrality.png")))};
+	   public ImageIcon[] getColeccionI() {
+		return coleccionI;
+	}
+
+	public void setColeccionI(ImageIcon[] coleccionI) {
+		this.coleccionI = coleccionI;
+	}
+
+	protected ImageIcon [] coleccionI=new ImageIcon[]{new ImageIcon((Powerup.class.getResource("/Imagenes/power up speed up.png"))),
+			new ImageIcon((Powerup.class.getResource("/Imagenes/power up fatality.png"))),
+			new ImageIcon((Powerup.class.getResource("/Imagenes/power up bombaility.png"))),
+			new ImageIcon((Powerup.class.getResource("/Imagenes/power up masacrality.png")))};
 		
 	/**
      * Constructor para el Power up

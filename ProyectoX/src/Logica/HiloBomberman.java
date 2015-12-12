@@ -2,6 +2,10 @@ package Logica;
 
 import Lugar.Lugar;
 
+/**
+ * @author Giorgetti,Constanza;Heinrich,Maria Eugenia
+ * Clase hilo para el bomberman
+ */
 public class HiloBomberman extends Thread {
 
 	

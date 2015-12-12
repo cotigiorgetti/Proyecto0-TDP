@@ -25,7 +25,7 @@ public class Fatality extends Powerup {
      */
     public Powerup devolverPowerUp (Bomberman b) {
     	 b.setPuntaje(b.getPuntaje()+35);
-       	 b.incrementarAlcance(2);
+       	 b.setAlcance(2);
         return this;
     }
 

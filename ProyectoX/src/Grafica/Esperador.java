@@ -1,5 +1,10 @@
 package Grafica;
 
+
+/**
+ * @author Giorgetti,Constanza;Heinrich,Maria Eugenia
+ */
+
 public class Esperador extends Thread{
 	
 	private Juego juego;

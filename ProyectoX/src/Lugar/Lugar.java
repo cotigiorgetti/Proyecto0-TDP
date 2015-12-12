@@ -1,5 +1,7 @@
 package Lugar;
 
+import javax.swing.ImageIcon;
+
 import Logica.Bombas;
 import Logica.Bomberman;
 import Logica.Item;
@@ -11,7 +13,21 @@ import Logica.Nivel;
 public class Lugar extends Item {
 	
 	 protected int transitable;
-	 protected Nivel Nivel;
+	 public ImageIcon[] getColeccionI() {
+		return coleccionI;
+	}
+	 /**
+	  * Setea la coleccion de lugares
+	  * @param coleccionI
+	  */
+
+	public void setColeccionI(ImageIcon[] coleccionI) {
+		this.coleccionI = coleccionI;
+	}
+	protected Nivel Nivel;
+	 protected ImageIcon [] coleccionI=new ImageIcon[]{new ImageIcon((Lugar.class.getResource("/Imagenes/piso.png"))),
+	    		new ImageIcon((Lugar.class.getResource("/Imagenes/pared indestructible.png"))),
+	    		new ImageIcon((Lugar.class.getResource("/Imagenes/pared destruible2.png")))};
 	 
 	/**
      * Constructor del lugar
@@ -56,14 +72,11 @@ public class Lugar extends Item {
     	return transitable;
     }
 
-    /**
-     * @param b
-     */
+   
     public  void destruirPared(Bombas b){
     	
     }
-    /**
-     */
+    
     public void serDestruido(Bomberman b){
     	
     }

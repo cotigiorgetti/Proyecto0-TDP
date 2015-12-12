@@ -3,10 +3,16 @@ package Logica;
 import java.io.IOException;
 import java.util.List;
 
+import javax.swing.JOptionPane;
+
 import Enemigo.*;
 import Grafica.Juego;
 import Lugar.Lugar;
 
+/**
+ * @author Giorgetti,Constanza;Heinrich,Maria Eugenia
+ * Clase Thread para los enemigos
+ */
 public abstract class HiloEnemigo extends Thread{
 	protected Enemigos e;
 	protected Juego j;
@@ -22,32 +28,13 @@ public abstract class HiloEnemigo extends Thread{
 		L=new Lugar(e.getPosicionX(),e.getPosicionY(),1);
 		j=null;
 	}
-	public void run() {
-		
-	while(!mDetener)	
-
-		{
-			
-			try {	
-				{
-					
-				//	Lugar l2=new Lugar(e.getPosicionX(),e.getPosicionY(),1);
-				//	System.out.println("L2 "+l2.getPosicionX() + "---"+l2.getPosicionY());
-				//	L=e.mover(nivel);
-					//System.out.println("l es nulo "+L==null);
-			//		System.out.println(L.getPosicionX() + "---"+L.getPosicionY());
-				 //  j.setearEnemigo(e,L);
-				 j.setearEnemigo3(e);
-				   j.setearEnemigo2();
-				   Thread.sleep(1000);
-			   }
-				
-			} catch (InterruptedException e) { 
-				System.out.println("error");
-			}
-		}
+	public boolean ismDetener() {
+		return mDetener;
 	}
-	
+	public void setmDetener(boolean mDetener) {
+		this.mDetener = mDetener;
+	}
+	public  abstract void run() ;
 	public void detener() {
 		// Interrumpo el hilo para que no continue con su ejecución.
 		this.interrupt(); 

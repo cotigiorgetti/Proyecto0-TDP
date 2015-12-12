@@ -1,6 +1,10 @@
 package Grafica;
 
 
+/**
+ * @author Giorgetti,Constanza;Heinrich,Maria Eugenia
+ * Clase Thread para el contador del juego
+ */
 
 public class Contador extends Thread {
 Juego j;

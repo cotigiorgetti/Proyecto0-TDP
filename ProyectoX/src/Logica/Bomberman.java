@@ -13,8 +13,19 @@ import PowerUps.*;
 public class Bomberman extends Item {
 	
 	//Imagen por defecto al inicio del juego
-    protected ImageIcon [] coleccionI=new ImageIcon[]{new ImageIcon((Bomberman.class.getResource("/Imagenes/bomberman derecha1.png")))};
-    protected int cantVidas;
+    protected ImageIcon [] coleccionI=new ImageIcon[]{new ImageIcon((Bomberman.class.getResource("/Imagenes/bomberman derecha1.png"))),
+    		new ImageIcon((Bomberman.class.getResource("/Imagenes/bomberman izq2.png"))),
+    		new ImageIcon((Bomberman.class.getResource("/Imagenes/bomberman espalda.png"))),
+    		new ImageIcon((Bomberman.class.getResource("/Imagenes/bomberman inicial.png"))),
+    		new ImageIcon((Bomberman.class.getResource("/Imagenes/bomberman muerto.png")))};
+    public ImageIcon[] getColeccionI() {
+		return coleccionI;
+	}
+
+	public void setColeccionI(ImageIcon[] coleccionI) {
+		this.coleccionI = coleccionI;
+	}
+	protected int cantVidas;
     protected int puntaje=0;
     protected float velocidad;
     protected int atravesarPared;
@@ -22,6 +33,9 @@ public class Bomberman extends Item {
     protected Bombas mis_bombas;
     protected Nivel Nivel;
 	protected int alcance;
+	protected String s;
+	protected boolean modoDios;
+
 
     /**
      * Constrcutor para Bomberman
@@ -40,6 +54,8 @@ public class Bomberman extends Item {
     	this.cantVidas=cantVidas;
     	this.setI(coleccionI[0]);
     	this.mis_bombas=new Bombas(1,23);
+    	alcance=1;
+    	s=null;
     }
 
     /**
@@ -111,11 +127,35 @@ public class Bomberman extends Item {
     /**
      * Setea atravesarPared
      */
-    public void cambiarAtravesarPared() {
-        // TODO implement here
+    public void cambiarAtravesarParedEn1() {
+       
+    	atravesarPared=1;
     }
-
     /**
+     * Sete atravesarPared
+     */
+
+    public void cambiarAtravesarParedEn0() {
+        
+    	atravesarPared=0;
+    }
+    /**
+     * Retorna la cantidad de bombar para colocar
+     * @return entero cantidad de bombas
+     */
+    public int getCantBombasParaColocar() {
+		return cantBombasParaColocar;
+	}
+    /**
+     * Sete la cantidad de bombas para colocar
+     * @param cantBombasParaColocar
+     */
+
+	public void setCantBombasParaColocar(int cantBombasParaColocar) {
+		this.cantBombasParaColocar = cantBombasParaColocar;
+	}
+
+	/**
      * Devuelve atravesarPared
      * @return atravesarPared
      */
@@ -155,32 +195,56 @@ public class Bomberman extends Item {
      * @param l lugar
      */
     public void Mover(Lugar l) {
+    	
+    	if(l.getPosicionX()==this.getPosicionX()+1)
+    	{s="Derecha";}
+    	else if(l.getPosicionX()==this.getPosicionX()-1)
+    	{s="Izquierda";}
+    	else if(l.getPosicionY()==this.getPosicionY()+1)
+    	{s="Arriba";}
+    	else if(l.getPosicionY()==this.getPosicionY()-1)
+    	{s="Abajo";}
     	int t=l.getTransitable();
-    	if (t==1){
+    	if ((t==1)){
     		int x=l.getPosicionX();
     		int y=l.getPosicionY();
     	  this.setPosicionX(x);
           this.setPosicionY(y);
-    		if(atravesarPared==1){
+    	/**	if(atravesarPared==1){
     			l.serAtravesada(this);
     			int x1=this.getPosicionX();
     			int y1=this.getPosicionY();
     			if(x==x1){
     				if(y<y1)
-    					this.setPosicionY(y+2);
-    				else this.setPosicionY(y-2);}
+    					this.setPosicionY(y+1);
+    				else this.setPosicionY(y-1);}
     			if(y==y1){
     				if(x<x1)
-    					this.setPosicionX(x+2);
-    				else this.setPosicionX(x-2);}
+    					this.setPosicionX(x+1);
+    				else this.setPosicionX(x-1);}
     				
-    			}
+    			}*/
     		}
     	}
     
-    	
+    	/**
+    	 * Setea atravesarPared
+    	 * @param atravesarPared
+    	 */
 
-    /**
+    public void setAtravesarPared(int atravesarPared) {
+		this.atravesarPared = atravesarPared;
+	}
+
+	public String getS() {
+		return s;
+	}
+
+	public void setS(String s) {
+		this.s = s;
+	}
+
+	/**
      * Setea la velocidad del bomberman
      * @param v velocidad
      */
@@ -228,9 +292,17 @@ public class Bomberman extends Item {
 		
 		
 	}
+	/**
+	 * Retorna el alcance
+	 * @return alcancee
+	 */
 	public int getAlcance() {
 		return alcance;
 	}
+	/**
+	 * Setea el alcance
+	 * @param alcance
+	 */
 
 	public void setAlcance(int alcance) {
 		this.alcance = alcance;
@@ -244,9 +316,65 @@ public class Bomberman extends Item {
 		// TODO Auto-generated method stub
 		return mis_bombas;
 	}
+	/**
+	 * Setea la bomba actual
+	 * @param b bomba
+	 */
 	public void setMisBombas(Bombas b)
 	{
 		mis_bombas=b;
+	}
+	/**
+	 * Consulta que retorna el valor de verdad del atributo modoDios
+	 * @return modoDios
+	 */
+	public boolean soyDios() {
+		return this.modoDios;
+	}
+
+	/**
+	 * Establece modoDios de Bomberman.
+	 * @param b Booleano a establecer.
+	 */
+	public void setModoDios(boolean b){
+		this.modoDios = b;
+	}
+	/**
+	 * Setea el modoDios del bomberman.
+	 */
+	public void cambiarSoyDios()
+	{
+		modoDios=!modoDios;	
+	}
+	/**
+	 * Setea el boolenao que determina si esta activo el modo dios
+	 * @param b
+	 */
+
+	public void setActivo(boolean b) {
+		Nivel.setActivo(b);
+		
+		
+	}
+	public void getActivo()
+	{
+		Nivel.isActivo();
+	}
+	/**
+	 * Aumenta la cantidad de bombas para colocar 
+	 * @param i cant de bombas a sumar
+	 */
+
+	public void AumentarCantBombasParaColocar(int i) {
+		cantBombasParaColocar+=i;
+		}
+	/**
+	 * Setea el nivel
+	 * @param nivel
+	 */
+
+	public void setNivel(Nivel nivel) {
+		Nivel = nivel;
 	}
 
 }
